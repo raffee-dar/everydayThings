@@ -68,13 +68,13 @@ $(function() {
     var sortDropDown = $(this).attr('id');
 
     switch (sortDropDown) {
-      case 'sort-petName':
+      case 'sort-patientName':
         $('.sort-by').removeClass('active');
-        sortBy = 'petName';
+        sortBy = 'patientName';
         break;
-      case 'sort-ownerName':
+      case 'sort-patientAddress':
         $('.sort-by').removeClass('active');
-        sortBy = 'ownerName';
+        sortBy = 'patientAddress';
         break;
       case 'sort-aptDate':
         $('.sort-by').removeClass('active');
@@ -101,7 +101,7 @@ $(function() {
     displayData = _.filter(aptData, function(item) {
       return (
         item.petName.toLowerCase().match(searchText.toLowerCase()) || 
-        item.ownerName.toLowerCase().match(searchText.toLowerCase()) || 
+        item.patientAddress.toLowerCase().match(searchText.toLowerCase()) || 
         item.aptNotes.toLowerCase().match(searchText.toLowerCase())       
       )
     }); // filter
@@ -113,8 +113,8 @@ $(function() {
     var newItem = {};
     e.preventDefault();
 
-    newItem.petName = $('#petName').val();
-    newItem.ownerName = $('#ownerName').val();
+    newItem.petName = $('#patientName').val();
+    newItem.patientAddress = $('#patientAddress').val();
     newItem.aptDate = $('#aptDate').val();
     newItem.aptNotes = $('#aptNotes').val();
 
